@@ -4,12 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
 import Content from './components/Content.jsx';
+import Skill from './components/Skill.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
     <Nav />
     <Content />
+    <Skill />
   </div>
 );
 
