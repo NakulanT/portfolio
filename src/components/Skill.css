@@ -1,0 +1,27 @@
+/* Skill.css */
+
+.slideshow {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+}
+
+.slides {
+    display: flex;
+    animation: slideAnimation 20s linear infinite; /* Adjust duration as needed */
+}
+
+.slides img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%); /* Adjust to accommodate all images */
+    }
+}
