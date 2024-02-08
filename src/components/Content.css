@@ -1,28 +1,32 @@
 .about {
     display: flex;
-    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .about img {
+    padding-top: 5%;
     width: 100%;
-    max-width: 500px;
+    max-width: 300px;
     height: auto;
-    max-height: 500px;
-    border-radius: 100% 100% 0% 100%;
+    max-height: 300px;
+    border-radius: 50%;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.about img:hover {
+.about .profile img:hover {
     transform: scale(1.05);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .about .intro {
+    padding-left: 5%;
     flex: 1;
-    padding: 20px;
     font-size: large;
     line-height: 1.5;
-    margin-top: 50px;
+    padding-right: 50px; /* Adjusted padding */
 }
 
 .about .intro h1 {
@@ -50,18 +54,53 @@
     .about {
         flex-direction: column;
         padding: 20px;
+        align-items: center;
     }
 
-    .about img,
+    .about .intro img,
     .about .intro {
         max-width: 100%;
         margin-top: 20px;
         order: initial;
     }
 
-    /* Remove hover effect on smaller screens */
-    .about img:hover {
-        transform: none;
-        box-shadow: none;
+    .about .profile img:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
+}
+
+.pathway {
+    display: flex;
+    flex-direction: column;
+}
+
+.pathway img {
+    align-items :end;
+    text-align: end;
+    margin-top: 70px;
+    border-radius: 100%;
+    box-shadow: none;
+
+}
+
+/* Remove hover effect for pathway images */
+.pathway img:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+#github {
+    width: 20px;
+    height: 20px;
+}
+
+#linkedin {
+    width: 30px;
+    height: 30px; /* Adjusted margin */
+}
+
+#leetcode {
+    width: 20px;
+    height: 20px;
 }
