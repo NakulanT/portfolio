@@ -1,24 +1,26 @@
 import React from "react";
 import './Content.css'
 import sampleImage from '../images/sample.png';
-import leetcode from '../images/leetcode.png'
-import linkdin from '../images/linkedin.png'
-import github from '../images/github.png'
 
 const Content = () => {
+    window.addEventListener('resize', function() {
+        console.log("Current viewport width: " + window.innerWidth);
+    });
+    
     return (
         <div>
             <div className="about">
-                <div className="pathway">
-                    <a href="https://www.linkedin.com/in/nakulant/">
-                        <img src={linkdin} alt="linkedin" id="linkedin" />
-                    </a>
-                    <a href="https://leetcode.com/nakult">
-                        <img src={leetcode} alt="leetcode" id="leetcode" />
-                    </a>
-                    <a href="https://github.com/NakulanT">
-                        <img src={github} alt="github" id="github" />
-                    </a>
+                <div className="links">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dheereshagrwal/colored-icons@1.7.3/src/app/ci.min.css" />
+                <a href="https://www.linkedin.com/in/nakulant/">
+                    <i class="ci ci-linkedin ci-2x"></i>
+                </a>
+                <a href="https://leetcode.com/nakult">
+                    <i class="ci ci-leetcode ci-2x"></i>
+                </a>
+                <a href="https://github.com/NakulanT">
+                    <i class="ci ci-github ci-2x"></i>
+                </a>
 
                 </div>
                 <div className="intro">
