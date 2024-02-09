@@ -1,32 +1,27 @@
 .about {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    flex-direction: row;
+    padding: 5% 20%;
 }
 
-.about img {
-    padding-top: 5%;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    max-height: 300px;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+.links {
+    flex: 10%;
+    display: flex;
+    flex-direction: column;
 }
 
-.about .profile img:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+.links i {
+    margin: 50% 0;
 }
 
-.about .intro {
-    padding-left: 5%;
-    flex: 1;
-    font-size: large;
-    line-height: 1.5;
-    padding-right: 50px; /* Adjusted padding */
+.intro {
+    padding: 0 40px;
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
 }
 
 .about .intro h1 {
@@ -49,58 +44,32 @@
     font-weight: 300;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
+@media (max-width : 768px) {
     .about {
+        display: flex;
         flex-direction: column;
-        padding: 20px;
         align-items: center;
+        text-align: center;
     }
 
-    .about .intro img,
-    .about .intro {
-        max-width: 100%;
-        margin-top: 20px;
-        order: initial;
+    .links {
+        display: flex;
+        flex-direction: row;
     }
 
-    .about .profile img:hover {
-        transform: scale(1.05);
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    .profile {
+        order: 1;
     }
-}
 
-.pathway {
-    display: flex;
-    flex-direction: column;
-}
+    .intro {
+        order: 2;
+    }
 
-.pathway img {
-    align-items :end;
-    text-align: end;
-    margin-top: 70px;
-    border-radius: 100%;
-    box-shadow: none;
+    .intro h3{
+        text-align: justify;
+    }
 
-}
-
-/* Remove hover effect for pathway images */
-.pathway img:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-#github {
-    width: 20px;
-    height: 20px;
-}
-
-#linkedin {
-    width: 30px;
-    height: 30px; /* Adjusted margin */
-}
-
-#leetcode {
-    width: 20px;
-    height: 20px;
+    .links {
+        order: 3;
+    }
 }
