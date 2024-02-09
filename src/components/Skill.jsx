@@ -22,12 +22,13 @@ const Skill = () => {
                     <h1>Frameworks</h1>
                     <div>
                         <div className="icons">
-                        <i class="ci ci-pytorch ci-5x"></i>
-                            <i class="ci ci-react ci-5x"></i>
-                            <i class="ci ci-tensorflow ci-5x"></i>
-                            <i class="ci ci-numpy ci-5x"></i>
-                            <i class="ci ci-pandas ci-5x"></i>
-                            <i class="ci ci-keras ci-5x"></i>
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/keras" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/pytorch" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/Flask" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/React" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/Pandas" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/Numpy" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
                         </div>
                     </div>
                 </div>
@@ -35,12 +36,13 @@ const Skill = () => {
                     <h1>Tools</h1>
                     <div>
                         <div className="icons">
-                        <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/Python.svg" />
-<img height="32" width="32" src="https://unpkg.com/simple-icons@v11/icons/python.svg" />
-                        <i class="ci ci-git ci-5x"></i>
-                        <i class="ci ci-github ci-5x"></i>
-                            <i class="ci ci-vscode ci-5x"></i>
-                            <i class="ci ci-jupyternotebook ci-5x"></i>
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/git" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/github" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/pycharm/forestgreen" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/docker" />
+                        <i class="ci ci-vscode ci-5x"></i>
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/anaconda" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/jupyter" />
                         </div>
                     </div>
                 </div>
@@ -48,7 +50,11 @@ const Skill = () => {
                     <h1>Backend</h1>
                     <div>
                         <div className="icons">
-
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/mysql" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/sqlite" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/firebase" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/mongodb" />
+                        <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
                         </div>
                     </div>
                 </div>
