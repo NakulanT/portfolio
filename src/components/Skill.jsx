@@ -5,6 +5,12 @@ const Skill = () => {
     return (
         <div>
             <div className="Skills">
+                <span>
+                    <h1> ○ SKILLS
+                    </h1>
+                    <h3>
+                    </h3>
+                </span>
                 <div className="grid">
                     <h1>Programming Languages</h1>
                     <div>
@@ -22,13 +28,13 @@ const Skill = () => {
                     <h1>Frameworks</h1>
                     <div>
                         <div className="icons">
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/keras" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/pytorch" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/Flask" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/React" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/Pandas" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/Numpy" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/keras" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/pytorch" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/Flask" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/React" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/Pandas" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/Numpy" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
                         </div>
                     </div>
                 </div>
@@ -36,13 +42,13 @@ const Skill = () => {
                     <h1>Tools</h1>
                     <div>
                         <div className="icons">
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/git" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/github" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/pycharm/forestgreen" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/docker" />
-                        <i class="ci ci-vscode ci-5x"></i>
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/anaconda" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/jupyter" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/git" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/github" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/pycharm/forestgreen" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/docker" />
+                            <i class="ci ci-vscode ci-5x"></i>
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/anaconda" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/jupyter" />
                         </div>
                     </div>
                 </div>
@@ -50,11 +56,11 @@ const Skill = () => {
                     <h1>Backend</h1>
                     <div>
                         <div className="icons">
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/mysql" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/sqlite" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/firebase" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/mongodb" />
-                        <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/mysql" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/sqlite" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/firebase" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/mongodb" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit" />
                         </div>
                     </div>
                 </div>

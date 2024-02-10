@@ -1,7 +1,7 @@
 .about {
     display: flex;
     flex-direction: row;
-    padding: 5% 20%;
+    padding: 5% 10%;
 }
 
 .links {
@@ -15,15 +15,19 @@
 }
 
 .intro {
-    padding: 0 40px;
+    padding: 0 10%;
 }
 
 .profile img {
-    width: 200px;
-    height: 200px;
+    margin-top: 0%;
+    width: 250px;
+    height: 250px;
     border-radius: 100%;
+    transition: transform 0.3s ease-in-out;
 }
-
+.profile img:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}
 .about .intro h1 {
     color: black;
     font-size: 2.5rem;
@@ -55,6 +59,11 @@
     .links {
         display: flex;
         flex-direction: row;
+        gap: 10%;
+    }
+
+    .links i {
+        margin: 20px 20px;
     }
 
     .profile {

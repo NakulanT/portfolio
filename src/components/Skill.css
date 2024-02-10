@@ -1,8 +1,6 @@
   .Skills{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   
   .grid{
@@ -15,16 +13,54 @@
   .grid h1{
     margin-top: 20px;
     padding: 0 20px;
+    color: #383838;
+    font-size: 2.0rem;
+    font-weight: 300;
     
   }
+  
+  .icons i {
+    padding: 15px;
+    animation-name: move;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    transition: transform  ubic-bezier(.22,.61,.36,1);
+  }
+  .icons img {
+    padding: 15px;
+    animation-name: move;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    transition: transform ease-in-out;
 
-  .icons-container {
-    display: flex;
-    overflow: hidden; /* Hide icons that overflow */
   }
   
-  .icons {
-    /*border: 1px solid grey;*/
-    padding: 20px;
+  @keyframes move {
+
+    50% {
+      transform: translateX(-50%);
+    }
+    50% {
+      transform: translateX(50%);
+    }
   }
-  
+i , img {
+  margin: 50px 30px;
+}
+span {
+  text-align: justify;
+  padding-left: 20%;
+}
+span h1{
+  margin-top: 20px;
+  padding: 0 20px;
+  color: #141414;
+  font-weight: bold;
+}
+span h3{
+  margin-top: 20px;
+  padding: 0 20px;
+  color: #4c4a4a;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
