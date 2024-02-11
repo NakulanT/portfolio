@@ -64,3 +64,9 @@ span h3{
   font-size: 1.5rem;
   font-weight: 400;
 }
+
+@media (max-width: 1162px) {
+  span {
+    padding: 5%;
+  }
+}

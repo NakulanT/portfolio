@@ -1,0 +1,29 @@
+.Boss {
+    background-color: aqua;
+    padding: 10%;
+}
+.Edu{
+    padding: 10px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Edu .container{
+    width: 500px;
+    justify-content: center;
+    text-align: center;
+}
+..Edu > div:nth-child(odd) .line {
+    width: 500px;
+    background-color: rgb(255, 2, 133);
+}
+
+.Edu > div:nth-child(odd) .container{
+    background-color: rgb(255, 210, 127);
+}
+.Edu div:nth-child(even) .container{
+    background-color: rgb(206, 127, 255);
+}

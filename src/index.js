@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
 import Content from './components/Content.jsx';
 import Skill from './components/Skill.jsx';
+import Edu from './components/Edu.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <Nav />
     <Content />
     <Skill />
+    <Edu />
   </div>
 );
 
