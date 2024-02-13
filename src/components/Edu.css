@@ -1,29 +1,105 @@
-.Boss {
-    background-color: aqua;
-    padding: 10%;
-}
-.Edu{
-    padding: 10px;
-    background-color: aqua;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.Timeline{
+  padding: 5% 10%;
 }
 
-.Edu .container{
-    width: 500px;
-    justify-content: center;
-    text-align: center;
-}
-..Edu > div:nth-child(odd) .line {
-    width: 500px;
-    background-color: rgb(255, 2, 133);
+.container{
+  width:50%;
+  height: 200px;
+  position: relative;
+  padding: 10px 5%;
 }
 
-.Edu > div:nth-child(odd) .container{
-    background-color: rgb(255, 210, 127);
+.left-container {
+left: 0;
 }
-.Edu div:nth-child(even) .container{
-    background-color: rgb(206, 127, 255);
+
+.right-container{
+  left: 50%;
+}
+
+.left-container .ball {
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  position: absolute;
+  right: -8px;
+  top: -5px;
+  border-radius: 50%;
+ /* Added transition for transform property */
+}
+
+
+.right-container .ball{
+  width: 13px;
+  height: 13px;
+  background-color: black;
+  position:absolute;
+  left : -4px;
+  top : -5px;
+  border-radius: 50%;
+}
+
+.left-container::after {
+  content: "";
+  position:absolute;
+  z-index: 1;
+  width :3px;
+  right :-3px;
+  height: 110%;
+  top: -5px;
+  background-color: black;
+}
+
+.right-container::after {
+  content: "";
+  position:absolute;
+  z-index: 1;
+  width :3px;
+  left :0px;
+  height: 110%;
+  top: -5px;
+  background-color: black;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: whitesmoke;
+  border-radius: 3%;
+  transition: transform 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+  padding: 10px 10px;
+  justify-content: center;
+}
+
+
+.box:hover {
+  transform: scale(1.1);
+}
+
+
+.box h1 {
+  color: #383838;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.box h2 {
+  color: #383838;
+  font-size: 1.0rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+.box h3 {
+  color: #383838;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.box h4{
+  font-weight: 700;
+  margin-bottom: 15px;
 }

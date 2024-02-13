@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Nav from './components/Nav';
@@ -7,17 +7,21 @@ import Content from './components/Content.jsx';
 import Skill from './components/Skill.jsx';
 import Edu from './components/Edu.jsx';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <div>
-    <Nav />
-    <Content />
-    <Skill />
-    <Edu />
-  </div>
-);
+function App() {
+  const [showEdu, setShowEdu] = useState(false);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+  return (
+    <div>
+      <Nav />
+      <Content />
+      <Skill />
+      {showEdu && <Edu />}
+      <button onClick={() => setShowEdu(true)} style={{ width: '100px', height: '40px', backgroundColor: 'blue' }}>Here</button>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
 reportWebVitals();
