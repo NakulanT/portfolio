@@ -7,10 +7,10 @@ const Edu = () => {
         <>
 
             <div className="Timeline">
-            <h1 id="heading">○ TIMELINE</h1>
+                <h1 id="heading">○ TIMELINE</h1>
                 <div className="select">
-                    <button id="Education"   className={!Education ? 'active' : ''}onClick={() => showEducation(true)}>Education</button>
-                    <button id="Experience"  className={Education ? 'active' : ''}onClick={() => showEducation(false)}>Experience</button>
+                    <button id="Education" className={!Education ? 'active' : ''} onClick={() => showEducation(true)}>Education</button>
+                    <button id="Experience" className={Education ? 'active' : ''} onClick={() => showEducation(false)}>Experience</button>
                 </div>
                 {Education ? (
                     <div className="Education">
@@ -60,7 +60,7 @@ const Edu = () => {
                             </div>
 
                         </div>)}
-                    
+
             </div>
 
         </>

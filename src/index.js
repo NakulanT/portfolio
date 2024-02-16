@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import Content from './components/Content.jsx';
 import Skill from './components/Skill.jsx';
 import Edu from './components/Edu.jsx';
+import Project from './components/Project.jsx';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Content />
       <Skill />
       <Edu />
+      <Project />
     </div>
 
   );
