@@ -1,0 +1,31 @@
+.Projects{
+display: flex;
+justify-content: center;
+}
+.ContentBox {
+    position: relative;
+}
+
+.prevButton,
+.nextButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust as needed */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prevButton {
+    left: 10px; /* Adjust left margin */
+}
+
+.nextButton {
+    left: 220px; /* Adjust right margin */
+}
+
+.ContentBox img{
+    width: 200px;
+    height: 200px;
+}
