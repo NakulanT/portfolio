@@ -5,43 +5,46 @@ import s2 from '../images/java.png';
 import s3 from '../images/c.png';
 
 const Project = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
+
     const slides = [
         { image: s1, description: "Python Programming Language" },
         { image: s2, description: "Java Programming Language" },
         { image: s3, description: "C Programming Language" }
-    ]; // Add your slide images and descriptions here
+    ];
 
-    const nextSlide = () => {
-        setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+    const [currentstate, setstate] = useState(0);
+
+    const next = () => {
+        setstate(currentstate === slides.length - 1 ? 0 : currentstate + 1);
+        console.log("next clicked", currentstate);
     };
 
-    const prevSlide = () => {
-        setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
+    const prev = () => {
+        setstate(currentstate === 0 ? slides.length - 1 : currentstate - 1);
+        console.log("prev clicked", currentstate);
     };
 
     useEffect(() => {
-        // Automatically switch to the next slide every 3 seconds
-        const interval = setInterval(() => {
-            setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
+        const changeImage = setInterval(() => {
+            setstate(currentstate === slides.length - 1 ? 0 : currentstate + 1);
         }, 3000);
-
-        return () => clearInterval(interval); // Cleanup interval on component unmount
-    }, [currentSlide, slides.length]);
+        return () => clearInterval(changeImage);
+    }, [currentstate, slides.length]);
 
     return (
-        <div className="Projects">
-            <div className="Fullbox">
-                <div className="ContentBox">
-                    <button className="prevButton" onClick={prevSlide}>{'<'}</button>
-                    <div className="slideContainer">
-                        <img src={slides[currentSlide].image} alt={`Slide ${currentSlide + 1}`} />
-                        <div className="description">{slides[currentSlide].description} Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores quam quibusdam quaerat temporibus. Aliquam ipsum culpa ducimus, commodi dolor deleniti? Ratione corporis, nemo nihil porro facere quod quo totam magnam!</div>
-                    </div>
-                    <button className="nextButton" onClick={nextSlide}>{'>'}</button>
+        <>
+        <h1 id = "projects">○ PROJECTS</h1>
+        <div className="projects">
+            <div className="slidebox">
+                <button onClick={prev} id="left">{"<"}</button>
+                <img src={slides[currentstate].image}></img>
+                <button onClick={next} id="right">{">"}</button>
                 </div>
+            <div className="description" >
+                <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse aperiam, repellat animi temporibus, cupiditate facilis impedit a quae atque beatae iusto placeat repudiandae sapiente fugiat reiciendis fuga ab voluptatem tempore!</h1>
             </div>
         </div>
+        </>
     );
 };
 
