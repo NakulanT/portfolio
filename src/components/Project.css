@@ -10,9 +10,11 @@
 }
 
 .slidebox img {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: auto;
+    border-radius: 5%;
 }
+
 
 .slidebox {
     display: flex;
@@ -38,10 +40,22 @@
 
 .slidebox button:active {
     transform: scale(0.7);
-    /* Scale down when clicked */
     transition-duration: 0s;
-    /* Remove transition duration for immediate effect */
 }
+
+.slidebox button:active + img {
+    animation: opic ; 
+}
+
+@keyframes opic {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .projects h1 {
     color: #404040;

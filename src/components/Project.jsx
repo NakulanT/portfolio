@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import './Project.css';
-import s1 from '../images/python.png';
-import s2 from '../images/java.png';
+import s1 from '../images/tic-tac-toe.png';
+import s2 from '../images/chatbot.png';
 import s3 from '../images/c.png';
 
 const Project = () => {
 
     const slides = [
-        { image: s1, description: "Python Programming Language" },
-        { image: s2, description: "Java Programming Language" },
+        { image: s1, description: "Tic Tac Toe game using Flask, HTML, CSS and Python, featuring an AI powered by the Min-Max algorithm. X as AI and O as the user" },
+        { image: s2, description: "Chatbot for IT support during a Hackathon, incorporating features such as text-to-text and image-to-text.Utilized the Streamlit framework and integrated the Gemini API for enhanced functionality" },
         { image: s3, description: "C Programming Language" }
     ];
 
@@ -27,7 +27,7 @@ const Project = () => {
     useEffect(() => {
         const changeImage = setInterval(() => {
             setstate(currentstate === slides.length - 1 ? 0 : currentstate + 1);
-        }, 3000);
+        }, 30000);
         return () => clearInterval(changeImage);
     }, [currentstate, slides.length]);
 
@@ -41,7 +41,7 @@ const Project = () => {
                 <button onClick={next} id="right">{">"}</button>
                 </div>
             <div className="description" >
-                <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse aperiam, repellat animi temporibus, cupiditate facilis impedit a quae atque beatae iusto placeat repudiandae sapiente fugiat reiciendis fuga ab voluptatem tempore!</h1>
+                <h1>{slides[currentstate].description}</h1>
             </div>
         </div>
         </>
