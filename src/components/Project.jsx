@@ -13,6 +13,7 @@ const Project = () => {
     ];
 
     const [currentstate, setstate] = useState(0);
+    const [animate , setAnimate] = useState(false);
 
     const next = () => {
         setstate(currentstate === slides.length - 1 ? 0 : currentstate + 1);
@@ -31,17 +32,30 @@ const Project = () => {
         return () => clearInterval(changeImage);
     }, [currentstate, slides.length]);
 
+    useEffect(() => {
+        setAnimate(true);
+        const timeout = setTimeout(() => {
+            setAnimate(false);
+        },3000);
+        return () => clearTimeout(timeout);
+    } , [currentstate]);
+
+    useEffect(() => {
+    console.log("Animation state changed:", animate);
+}, [animate]);
+
+
     return (
         <>
         <h1 id = "projects">○ PROJECTS</h1>
         <div className="projects">
             <div className="slidebox">
                 <button onClick={prev} id="left">{"<"}</button>
-                <img src={slides[currentstate].image}></img>
+                <img src={slides[currentstate].image} alt="Project"></img>
                 <button onClick={next} id="right">{">"}</button>
                 </div>
-            <div className="description" >
-                <h1>{slides[currentstate].description}</h1>
+            <div className= {`description ${animate ? 'slideIn' : ''}`}>
+                <h1>{console.log("kjasghashjhj",animate)}{slides[currentstate].description}</h1>
             </div>
         </div>
         </>

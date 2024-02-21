@@ -11,8 +11,10 @@
 
 .slidebox img {
     width: 400px;
-    height: auto;
-    border-radius: 5%;
+    height: 400px;
+    border-radius: 5%; 
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(6, 6, 6, 0.5);
 }
 
 
@@ -23,13 +25,13 @@
 }
 
 .slidebox button {
-    color: #1f1f1f;
-    height: 80px;
+    color: #515151;
+    height: 300px;
     width: 80px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-style: none;
-    font-size: 3em;
-    font-weight: 900;
+    font-size: 4em;
+    font-weight: 100;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -44,17 +46,9 @@
 }
 
 .slidebox button:active + img {
-    animation: opic ; 
+    box-shadow: 0 0 30px rgba(36, 36, 36, 0.5);
 }
 
-@keyframes opic {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
 
 .projects h1 {
@@ -67,4 +61,24 @@
 #projects {
     margin-top: 80px;
     margin-left: 15%;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.description {
+    width: auto;
+    height: 150px;
+    animation: slideIn;
+    animation-duration: 2s;
 }
