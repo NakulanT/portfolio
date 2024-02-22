@@ -5,12 +5,7 @@ const Skill = () => {
     return (
         <div>
             <div className="Skills">
-                <span>
-                    <h1> ○ SKILLS
-                    </h1>
-                    <h3>
-                    </h3>
-                </span>
+                    <h1 id="subheadings"> ○ SKILLS</h1>
                 <div className="grid">
                     <h1>Programming Languages</h1>
                     <div>

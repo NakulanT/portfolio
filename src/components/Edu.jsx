@@ -5,12 +5,12 @@ const Edu = () => {
     const [Education, showEducation] = useState(true);
     return (
         <>
+                        <h1 id="subheadings">○ TIMELINE</h1>
 
             <div className="Timeline">
-                <h1 id="heading">○ TIMELINE</h1>
                 <div className="select">
-                    <button id="Education" className={!Education ? 'active' : ''} onClick={() => showEducation(true)}>Education</button>
-                    <button id="Experience" className={Education ? 'active' : ''} onClick={() => showEducation(false)}>Experience</button>
+                    <a id="Education" className={Education ? 'active' : ''} onClick={() => showEducation(true)}>Education</a>
+                    <a id="Experience" className={!Education ? 'active' : ''} onClick={() => showEducation(false)}>Experience</a>
                 </div>
                 {Education ? (
                     <div className="Education">

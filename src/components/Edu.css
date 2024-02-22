@@ -9,7 +9,8 @@
   }
 }
 .Timeline {
-  padding: 5% 10%;
+  padding: 0 10%;
+  animation: slideIn 2s ease forwards;
 }
 
 .container {
@@ -17,7 +18,7 @@
   height: 200px;
   position: relative;
   padding: 10px 5%;
-  animation: slideIn 1s ease forwards;
+  animation: slideIn 2s ease forwards;
 }
 
 .left-container {
@@ -31,7 +32,7 @@
 .left-container .ball {
   width: 13px;
   height: 13px;
-  background-color: rgb(65, 65, 65);
+  background-color:  rgb(65, 65, 65);
   position: absolute;
   right: -8px;
   top: -5px;
@@ -77,7 +78,7 @@
   flex-direction: column;
   align-items: center;
   height: 135%;
-  background-color: whitesmoke;
+  background-color: rgb(255, 255, 255);
   border-radius: 3%;
   transition: transform 0.3s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -132,9 +133,10 @@
   background-color: transparent;
   border-style: none;
   color: rgb(43, 42, 42);
-  font-weight: 100;
+  font-weight: 300;
   font-size: 2.0em;
-  padding: 20px;
+  padding: 0  20px;
+  text-decoration: none;
 }
 
 
@@ -143,7 +145,7 @@
   color: rgb(123, 119, 119);
   margin-bottom: 15px;
   font-size: 2.0rem;
-  font-weight: 100 !important;
+  font-weight: 300;
 }
 
 .select {
@@ -155,4 +157,39 @@
 
 #heading {
   padding-left: 7%;
+}
+
+@media (max-width: 1000px) {
+  .ball {
+    left: 0%;
+    left: -4px;
+    top: -5px;
+    border-radius: 50%;
+  }
+
+  .container{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  .left-container , .right-container {
+    left: 0%;
+    margin-top: 40px; /* Adjust this value as needed */
+  }
+
+  .left-container::after , .right-container::after{
+    left: 0%;
+    height: 120%;
+  }
+
+  .box:hover {
+    transform: scale(1.03);
+  }
+
+  .container:last-child::after{
+    height: 100%;
+  }
 }

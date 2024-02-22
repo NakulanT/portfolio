@@ -47,7 +47,7 @@ const Project = () => {
 
     return (
         <>
-        <h1 id = "projects">○ PROJECTS</h1>
+        <h1 id="subheadings-projects">○ PROJECTS</h1>
         <div className="projects">
             <div className="slidebox">
                 <button onClick={prev} id="left">{"<"}</button>
