@@ -10,12 +10,17 @@
 }
 
 .slidebox img {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     border-radius: 5%; 
-    transition: box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     box-shadow: 0 0 20px rgba(6, 6, 6, 0.5);
 }
+
+.slidebox img:hover {
+    transform: scale(1.1);
+}
+
 
 
 .slidebox {
@@ -25,20 +30,22 @@
 }
 
 .slidebox button {
-    color: #515151;
+    color: #707070;
     height: 100px;
     width: 80px;
     background-color: rgb(255, 255, 255);
     border-style: none;
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 100;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .slidebox button:hover {
+    color: #0c0c0c;
     transform: scale(1.2);
     /* Scale up on hover */
 }
+
 
 .slidebox button:active {
     transform: scale(0.7);
@@ -61,6 +68,12 @@
 #projects {
     margin-top: 80px;
     margin-left: 15%;
+}
+
+
+.projectname{
+    font-weight: 300;
+    font-size: 2.5em;
 }
 
 @keyframes slideIn {

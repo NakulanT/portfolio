@@ -7,9 +7,9 @@ import s3 from '../images/c.png';
 const Project = () => {
 
     const slides = [
-        { image: s1, description: "Tic Tac Toe game using Flask, HTML, CSS and Python, featuring an AI powered by the Min-Max algorithm. X as AI and O as the user" },
-        { image: s2, description: "Chatbot for IT support during a Hackathon, incorporating features such as text-to-text and image-to-text.Utilized the Streamlit framework and integrated the Gemini API for enhanced functionality" },
-        { image: s3, description: "C Programming Language" }
+        { image: s1,name : "Tic Tac Toe" , link : "https://github.com/NakulanT/Tic-Tac-Toe",description: "Tic Tac Toe game using Flask, HTML, CSS and Python, featuring an AI powered by the Min-Max algorithm. X as AI and O as the user" },
+        { image: s2,name : "Chatbot", link : "https://github.com/NakulanT/Tic-Tac-Toe",description: "Chatbot for IT support during a Hackathon, incorporating features such as text-to-text and image-to-text.Utilized the Streamlit framework and integrated the Gemini API for enhanced functionality" },
+        { image: s3,name : "C",link : "https://github.com/NakulanT/Tic-Tac-Toe",description: "C Programming Language" }
     ];
 
     const [currentstate, setstate] = useState(0);
@@ -49,9 +49,10 @@ const Project = () => {
         <>
         <h1 id="subheadings-projects">○ PROJECTS</h1>
         <div className="projects">
+            <div className="projectname">{slides[currentstate].name}</div>
             <div className="slidebox">
                 <button onClick={prev} id="left">{"<"}</button>
-                <img src={slides[currentstate].image} alt="Project"></img>
+                <a href={slides[currentstate].link}><img src={slides[currentstate].image} alt="Project"></img></a>
                 <button onClick={next} id="right">{">"}</button>
                 </div>
             <div className= {`description ${animate ? 'slideIn' : ''}`}>
