@@ -1,0 +1,43 @@
+.form{
+    padding: 0 ;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-name{
+    font-size: 2em;
+    width: 50%;
+    height: auto;
+    order: 1;
+    background-color: oldlace;
+}
+.form-email{
+    font-size: 2em;
+    width: 50%;
+    order: 2;
+    background-color: greenyellow;
+}
+.form-message{
+    font-size: 2em;
+    width: 100%;
+    order: 3;
+    background-color: gray;
+}
+
+#form-summit{
+    order: 4;
+    background-color: blue;
+}
+
+.form input{
+    width: 200px;
+    height : 100px;
+}
+
+.form textarea{
+    width: 400px;
+    height : 200px
+}

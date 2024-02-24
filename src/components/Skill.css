@@ -1,6 +1,7 @@
   .Skills{
     display: flex;
     flex-direction: column;
+    margin-top: 5%;
   }
   
   .grid{
@@ -68,5 +69,12 @@ span h3{
 @media (max-width: 1162px) {
   span {
     padding: 5%;
+  }
+  .icons{
+    display:flexbox;
+    text-align: center;
+  }
+  .icons i , .icons img{
+    animation: none;
   }
 }

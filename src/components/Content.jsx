@@ -25,7 +25,7 @@ const Content = () => {
                 </div>
                 <div className="intro">
                     <h1>
-                        Hi , I'm Nakulan
+                        Hi , I'm Nakulan  
                     </h1>
                     <h2>
                         Artificial Intellegence and Data Science

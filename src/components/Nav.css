@@ -8,30 +8,34 @@
   
   nav {
     background-color: white;
-    height: auto;
+    height: 80px;
     width: 100%;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 15px;
-    padding-left: 20%;
+    padding-left: 15%;
     overflow: auto;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    align-items: center;
   }
+  
   
   label.logo {
     font-size: 35px;
-    line-height: 100px;
+    line-height: 80px;
     padding: 0 20px;
     font-weight: bold;
   }
   
   nav ul {
     float: right;
-    padding-right: 20%;
+    padding-right: 12%;
     margin-right: 20px;
   }
   
   nav ul li {
     display: inline-block;
-    line-height: 100px;
+    line-height: 80px;
     margin: 0 15px;
   }
   
@@ -39,7 +43,7 @@
     color: black;
     font-size: 17px;
     text-transform: uppercase;
-    padding: 7px 13px;
+    padding: 0 13px;
     border-radius: 3px;
   }
   

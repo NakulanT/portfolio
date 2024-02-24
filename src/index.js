@@ -7,6 +7,7 @@ import Content from './components/Content.jsx';
 import Skill from './components/Skill.jsx';
 import Edu from './components/Edu.jsx';
 import Project from './components/Project.jsx';
+import Contact from './components/Contact.jsx';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Skill />
       <Edu />
       <Project />
+      <Contact />
     </div>
 
   );
