@@ -1,6 +1,6 @@
 import React from "react";
 import './Content.css'
-import sampleImage from '../images/sample.png';
+import sampleImage from '../images/edited.jpg';
 
 const Content = () => {
     window.addEventListener('resize', function() {
@@ -9,7 +9,7 @@ const Content = () => {
     
     return (
         <div>
-            <div className="about">
+            <div className="about" id="about">
                 <div className="links">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dheereshagrwal/colored-icons@1.7.3/src/app/ci.min.css" />
                 <a href="https://www.linkedin.com/in/nakulant/">

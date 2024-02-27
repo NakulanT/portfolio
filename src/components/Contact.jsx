@@ -1,31 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './Contact.css'
 
 const Contact = () => {
 
-    const [name, setName] = useState('');
+    const [firstname, setfirst] = useState('');
+    const [lastname, setlast] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = () => {
-        console.log(name , email ,message);
+        console.log(firstname,lastname,email,message);
     } 
     return (
+        <section id="contact" >
         <div className="Contact">
             <h1 id="subheadings">○ Contact</h1>
             <form onSubmit={handleSubmit}>
                 <div className="form">
-                    <div className="form-name">
-                        <label htmlFor="name">Name </label>
+                    <div className="firstname">
+                        <label htmlFor="name">First name</label>
                         <input
                             type="text"
                             id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            value={firstname}
+                            onChange={(e) => setfirst(e.target.value)}
                             required
                         />
                     </div>
-                    <div className="form-email">
+
+                    <div className="lastname">
+                        <label htmlFor="name">Last name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={lastname}
+                            onChange={(e) => setlast(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="email">
                         <label htmlFor="email" >Email</label>
                         <input
                             type="email"
@@ -35,7 +48,7 @@ const Contact = () => {
                             required
                         />
                     </div>
-                    <div className="form-message">
+                    <div className="message">
                         <label htmlFor="message">Message</label>
                         <textarea
                             id="message"
@@ -44,10 +57,13 @@ const Contact = () => {
                             required
                         ></textarea>
                     </div>
+                    <div className="formsummit">
                     <button id="form-summit" type="submit">Send Email</button>
+                    </div>
                 </div>
             </form>
         </div>
+        </section>
     );
 };
 

@@ -4,8 +4,8 @@ import './Edu.css';
 const Edu = () => {
     const [Education, showEducation] = useState(true);
     return (
-        <>
-                        <h1 id="subheadings">○ TIMELINE</h1>
+        <section id="time">
+            <h1 id="subheadings">○ TIMELINE</h1>
 
             <div className="Timeline">
                 <div className="select">
@@ -63,7 +63,7 @@ const Edu = () => {
 
             </div>
 
-        </>
+        </section>
     );
 };
 

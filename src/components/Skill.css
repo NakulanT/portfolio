@@ -23,14 +23,14 @@
   .icons i {
     padding: 15px;
     animation-name: move;
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     transition: transform  ubic-bezier(.22,.61,.36,1);
   }
   .icons img {
     padding: 15px;
     animation-name: move;
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
     transition: transform ease-in-out;
 

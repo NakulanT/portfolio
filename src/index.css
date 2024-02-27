@@ -13,7 +13,7 @@ code {
 #subheadings{
   font-size: 1.7em;
   font-weight: 600;
-  margin: 50px 0;
+  margin-top: 50px;
   margin-left: 12%;
 }
 
@@ -21,6 +21,6 @@ code {
   font-size: 1.7em;
   font-weight: 600;
   margin-top: 12% ;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   margin-left: 12%;
 }

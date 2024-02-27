@@ -46,9 +46,9 @@ const Project = () => {
 
 
     return (
-        <>
+        <section id="pro">
         <h1 id="subheadings-projects">○ PROJECTS</h1>
-        <div className="projects">
+        <div className="projects" >
             <div className="projectname">{slides[currentstate].name}</div>
             <div className="slidebox">
                 <button onClick={prev} id="left">{"<"}</button>
@@ -59,7 +59,7 @@ const Project = () => {
                 <h1>{console.log("kjasghashjhj",animate)}{slides[currentstate].description}</h1>
             </div>
         </div>
-        </>
+        </section>
     );
 };
 
