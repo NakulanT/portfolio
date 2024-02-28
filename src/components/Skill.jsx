@@ -55,7 +55,6 @@ const Skill = () => {
                             <img height="70" width="80" src="https://cdn.simpleicons.org/sqlite"  alt = "img" />
                             <img height="70" width="80" src="https://cdn.simpleicons.org/firebase"  alt = "img" />
                             <img height="70" width="80" src="https://cdn.simpleicons.org/mongodb"  alt = "img" />
-                            <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit"  alt = "img" />
                         </div>
                     </div>
                 </div>

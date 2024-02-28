@@ -40,11 +40,12 @@
   }
   
   nav ul li a {
-    color: black;
+    color: rgb(24, 24, 24);
     font-size: 17px;
     text-transform: uppercase;
     padding: 0 13px;
     border-radius: 3px;
+    font-weight: 400;
   }
   
   a.nav_link,
