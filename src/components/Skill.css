@@ -67,6 +67,13 @@ span h3{
 }
 
 @media (max-width: 1162px) {
+
+  .grid h1{
+    font-size: 1.5rem;
+    font-weight: 300;
+    
+  }
+  
   span {
     padding: 5%;
   }

@@ -85,4 +85,20 @@
     .links {
         order: 3;
     }
+
+    .about .intro h1{
+        font-size: 2em;
+    }
+    .about .intro h2{
+        font-size: 1.5em;
+    }
+    .about .intro h3{
+        font-size: 1.2em;
+    }
+
+    .profile img{
+        width: 200px;
+        height: 200px;
+        margin-bottom: 0;
+    }
 }

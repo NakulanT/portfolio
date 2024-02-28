@@ -149,7 +149,7 @@
 }
 
 .select {
-  padding: 40px 0;
+  padding: 10px 0;
   justify-content: center;
   display: flex;
   margin-bottom: 30px;
@@ -192,4 +192,20 @@
   .container:last-child::after{
     height: 100%;
   }
+
+  #Education,
+#Experience ,#Education.active,
+#Experience.active{
+  font-size: 1.5em;
+}
+.box h1{
+  font-size: 1.3em;;
+}
+.box h2{
+  font-size: 1em;
+}
+
+.box h3{
+  font-size: 0.8em;
+}
 }

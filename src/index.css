@@ -24,3 +24,29 @@ code {
   margin-bottom: 20px;
   margin-left: 12%;
 }
+
+@media (max-width: 1162px) {
+  
+#subheadings{
+  margin-bottom: 40px;
+}
+#subheadings-projects{
+  margin-bottom: 40px;
+}
+
+}
+
+
+
+@media (max-width: 750px) {
+  
+  #subheadings{
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+  #subheadings-projects{
+    font-size: 1.5em;
+    margin-bottom: 40px;
+  }
+  
+  }

@@ -121,4 +121,14 @@
     .description{
         padding: 0 20px;
     }
+    .projects h1 {
+        font-size: 1.2em;
+    }
+
+    .projectname{
+        font-weight: 300;
+        font-size: 1.7em;
+    }
+    
+
 }
