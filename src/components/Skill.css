@@ -85,3 +85,30 @@ span h3{
     animation: none;
   }
 }
+
+
+@media (max-width : 660px) {
+  .icons{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display:flexbox;
+    text-align: justify;
+    align-items: center;
+    text-align: center;
+  }
+  .icons i , .icons img{
+    padding: 20px;
+    animation: none;
+    line-height: 0;
+    margin:0;
+  }
+
+  .grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+}

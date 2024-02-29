@@ -76,6 +76,7 @@
     .intro {
         order: 2;
         padding: 5%;
+        line-height: 40px;
     }
 
     .intro h3 {

@@ -1,6 +1,6 @@
 .form{
     margin-top: 50px;
-    padding: 0 25%;
+    padding: 0 20%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -85,4 +85,10 @@
     background-color: #c0c0c0; 
     color: #303030; 
 
+}
+
+@media (max-width : 660px) {
+    .form{
+        padding:  0 12%;
+    }
 }
