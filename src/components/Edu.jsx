@@ -20,7 +20,7 @@ const Edu = () => {
                             <div className="box">
                                 <h1>Nandha Engineering College</h1>
                                 <h2>Bachelor's in  Artificial Intellegence and Data Science</h2>
-                                <h3>Aug 2021 - Jun 2025</h3>
+                                <h3>Aug 2021 - May 2025</h3>
                                 <h4>CGPA : 8.0</h4>
                             </div>
                         </div>
@@ -53,8 +53,8 @@ const Edu = () => {
                                 <div className="ball">
                                 </div>
                                 <div className="box">
-                                    <h1>ML Engineer Intern</h1>
-                                    <h5>Igrad labs - Remote</h5>
+                                    <h1>Machine Learning Engineer Intern</h1>
+                                    <h5>Igrad labs pvt ltd - Remote</h5>
                                     <h3>Sep 2023 - Current</h3>
                                 </div>
                             </div>

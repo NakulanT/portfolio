@@ -15,7 +15,7 @@ const Content = () => {
                 <a href="https://www.linkedin.com/in/nakulant/">
                     <i class="ci ci-linkedin ci-2x"></i>
                 </a>
-                <a href="https://leetcode.com/nakult">
+                <a href="https://leetcode.com/nakulant">
                     <i class="ci ci-leetcode ci-2x"></i>
                 </a>
                 <a href="https://github.com/NakulanT">
@@ -31,12 +31,7 @@ const Content = () => {
                         Artificial Intellegence and Data Science
                     </h2>
                     <h3>
-                        As an AI and Data Science
-                        student, I'm excel in data structures
-                        and algorithms. I'm passionate about
-                        solving complex problems and have a
-                        solid background in Machine
-                        Learning and Data Science.
+                    As a Machine Learning Engineer Intern at IGrads Labs, I’m an Artificial Intelligence and Data Science graduate. I’ve built advanced AI systems with strong accuracy for real-time applications. I’m focused on driving innovative solutions in machine learning and AI.
                     </h3>
                 </div>
                 <div className="profile">
