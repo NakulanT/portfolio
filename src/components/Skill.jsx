@@ -24,12 +24,14 @@ const Skill = () => {
                     <div>
                         <div className="icons">
                             <img height="70" width="80" src="https://cdn.simpleicons.org/keras"   alt = "img" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/tensorflow"   alt = "img" />
                             <img height="70" width="80" src="https://cdn.simpleicons.org/pytorch"  alt = "img"/>
                             <img height="70" width="80" src="https://cdn.simpleicons.org/Flask"  alt = "img"/>
                             <img height="70" width="80" src="https://cdn.simpleicons.org/React"  alt = "img"/>
                             <img height="70" width="80" src="https://cdn.simpleicons.org/Pandas"  alt = "img"/>
                             <img height="70" width="80" src="https://cdn.simpleicons.org/Numpy"  alt = "img"/>
                             <img height="70" width="80" src="https://cdn.simpleicons.org/streamlit"  alt = "img"/>
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/opencv"  alt = "img"/>
                         </div>
                     </div>
                 </div>
@@ -55,6 +57,7 @@ const Skill = () => {
                             <img height="70" width="80" src="https://cdn.simpleicons.org/sqlite"  alt = "img" />
                             <img height="70" width="80" src="https://cdn.simpleicons.org/firebase"  alt = "img" />
                             <img height="70" width="80" src="https://cdn.simpleicons.org/mongodb"  alt = "img" />
+                            <img height="70" width="80" src="https://cdn.simpleicons.org/Neo4j"   alt = "img" />
                         </div>
                     </div>
                 </div>
