@@ -112,6 +112,7 @@
     font-size: 1.5rem;
     line-height: 1.6;
     font-weight: 500;
+    white-space: nowrap;
     
 
 }
@@ -152,6 +153,15 @@
     .projectname{
         font-weight: 300;
         font-size: 1.7em;
+    }
+    .tools {
+        padding: 0 20px;
+    }
+    .tools h2{
+        display: none;
+    }
+    .tools h3{
+        font-size: 1.2em;
     }
     
 
