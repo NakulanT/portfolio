@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.55d664cd.css",
-    "main.js": "/portfolio/static/js/main.d6b28dc2.js",
+    "main.css": "/portfolio/static/css/main.ab5c6b2a.css",
+    "main.js": "/portfolio/static/js/main.1dd99bb6.js",
     "static/js/592.6d7de513.chunk.js": "/portfolio/static/js/592.6d7de513.chunk.js",
     "static/media/edited.jpg": "/portfolio/static/media/edited.c6c157ac5993c888e58d.jpg",
     "static/media/chennai.png": "/portfolio/static/media/chennai.6ffbb20b0dc3e406eb99.png",
-    "static/media/whatsapp.png": "/portfolio/static/media/whatsapp.77f5ccda41ba3f0c6480.png",
-    "static/media/Ecart.png": "/portfolio/static/media/Ecart.07db60d8db43fbde4804.png",
-    "static/media/cricket.jpg": "/portfolio/static/media/cricket.b0d5a0f02762f2b4564e.jpg",
+    "static/media/Cattle2.png": "/portfolio/static/media/Cattle2.95de2c70ae6809e19101.png",
+    "static/media/whatsapp.png": "/portfolio/static/media/whatsapp.e11fda498b493a01b42d.png",
+    "static/media/Ecart.png": "/portfolio/static/media/Ecart.1e08dd1c1d82ecd9932f.png",
+    "static/media/cricket.jpg": "/portfolio/static/media/cricket.fa62a8801cb6dfea7049.jpg",
     "static/media/ecommerse.png": "/portfolio/static/media/ecommerse.3e84010ede9e267c880e.png",
-    "static/media/Cattle.png": "/portfolio/static/media/Cattle.d47201ef01f97775ebca.png",
-    "static/media/Chatroom.png": "/portfolio/static/media/Chatroom.3b36cd26afec5772202e.png",
+    "static/media/Chatroom.png": "/portfolio/static/media/Chatroom.7ed1de38f5847319a448.png",
     "static/media/tic-tac-toe.png": "/portfolio/static/media/tic-tac-toe.4a44b1941f0c95990efc.png",
     "index.html": "/portfolio/index.html",
-    "main.55d664cd.css.map": "/portfolio/static/css/main.55d664cd.css.map",
-    "main.d6b28dc2.js.map": "/portfolio/static/js/main.d6b28dc2.js.map",
+    "main.ab5c6b2a.css.map": "/portfolio/static/css/main.ab5c6b2a.css.map",
+    "main.1dd99bb6.js.map": "/portfolio/static/js/main.1dd99bb6.js.map",
     "592.6d7de513.chunk.js.map": "/portfolio/static/js/592.6d7de513.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55d664cd.css",
-    "static/js/main.d6b28dc2.js"
+    "static/css/main.ab5c6b2a.css",
+    "static/js/main.1dd99bb6.js"
   ]
 }
