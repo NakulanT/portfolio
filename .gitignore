@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# production
+/dist
+
+# large original photo, do not commit
+/0T2A1254.JPG
