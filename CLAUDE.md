@@ -7,6 +7,8 @@ Personal portfolio of Nakulan T (AI Engineer, Chennai). Live at https://nakulant
 - `npm run dev` (local), `npm run build` (to `dist/`), `npm run deploy` (build + publish `dist/` to the `gh-pages` branch).
 - `vite.config.js` sets `base: '/portfolio/'`, which must match the repo name. Asset paths in `index.html` use `/portfolio/`.
 - Source is on `main`; `gh-pages` holds only build output. Never edit `gh-pages` by hand.
+- `VITE_BASE` overrides the base path. `npm run deploy:hermes` builds with base `/portfolio/hermes/` and publishes to the `hermes/` subfolder of `gh-pages` with `--add`, so the live root site is never deleted. Preview: https://nakulant.github.io/portfolio/hermes/
+- Do NOT run `npm run deploy` from a feature branch: it replaces the root of `gh-pages` (the live site).
 
 ## Structure
 ```
@@ -20,8 +22,9 @@ src/assets/profile.jpg      hero portrait (cropped from a larger photo)
 To add a profile link (Medium, Kaggle, Hugging Face, X), add an entry to `links` in `src/data.js`; add an icon case in `Icon` in `Art.jsx` if it needs one.
 
 ## Design decisions
-- Concept: an AI engineer who also designs, so the site itself is the design proof. Minimalist, dark by default, one lime accent (violet in light mode).
-- Fonts: Bricolage Grotesque (headings), Inter (body), JetBrains Mono (labels), loaded from Google Fonts.
+- Concept: an AI engineer who also designs, so the site itself is the design proof.
+- **Two looks.** `main` has the dark and lime look (Bricolage Grotesque / Inter / JetBrains Mono). Branch `hermes-theme` restyles the whole site after https://hermes-agent.nousresearch.com/: electric-blue page (#0000f2) with a thin frame, tall condensed uppercase headings, square corners, tracked mono labels, a blue duotone portrait with radiating lines. Its light mode uses the site's paper (#fdfdfd) with a #0847c4 accent.
+- Hermes fonts (Rules, Rules Gothic, Aeonik Fono) are licensed, so they are NOT copied. Lookalikes from Google Fonts are used: Antonio (headings), Inter (body), DM Mono (labels). Default theme on that branch is always blue (the dark token set), not the OS preference.
 - Work section is a uniform **3x3 grid of nine cards**. Every illustration is drawn in a **320x200 SVG (16:10)** so cards match. Keep card copy similar in length so rows stay equal height. Tablet: two columns, the last card spans the row. Phone: one column.
 - Illustrations are original SVG, no screenshots and no stock images. They use CSS variables so they follow the theme. Keep them simple; the user rejected busy ones.
 - Cursor glow and card spotlight use `--glow` and `--spot`; light mode needs stronger values to be visible.
