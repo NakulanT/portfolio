@@ -138,7 +138,7 @@ export function buildZen(T, { root, scene, count }) {
   root.add(fuji);
 
   // falling petals around the camera
-  const PN = 450;
+  const PN = 220;
   const petals = new T.InstancedMesh(new T.PlaneGeometry(0.1, 0.07), new T.MeshBasicMaterial({ color: '#f6b7c9', side: T.DoubleSide }), PN);
   const pst = Array.from({ length: PN }, () => ({ x: (R() - 0.5) * 26, y: R() * 9, z: (R() - 0.5) * 30, v: 0.4 + R() * 0.6, ph: R() * 6, r: R() * 6 }));
   root.add(petals);

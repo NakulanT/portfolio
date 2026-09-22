@@ -97,12 +97,12 @@ export function buildArcade(T, { root, scene, count }) {
       }`,
   });
   const sun = new T.Mesh(new T.PlaneGeometry(76, 76), sunMat);
-  const sunGlow = glowSprite(T, '#ff3d9a', 170, 0.55);
+  const sunGlow = glowSprite(T, '#ff3d9a', 120, 0.55);
   root.add(sunGlow, sun);
 
   // stars
   const R = rng(3);
-  const S = 900;
+  const S = 600;
   const sp = new Float32Array(S * 3);
   for (let i = 0; i < S; i++) {
     const a = R() * Math.PI, e = 0.05 + R() * 1.2, r = 220;

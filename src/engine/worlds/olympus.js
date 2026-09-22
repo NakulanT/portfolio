@@ -112,7 +112,7 @@ export function buildOlympus(T, { root, scene, count }) {
   root.add(sun, sunDisc);
 
   // golden motes
-  const M = 500;
+  const M = 260;
   const mp = new Float32Array(M * 3);
   for (let i = 0; i < M; i++) {
     const a = R() * Math.PI * 2, r = 3 + R() * 24;

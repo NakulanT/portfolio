@@ -29,7 +29,7 @@ export function buildNeural(T, { root, scene, count }) {
     }
   }
 
-  const X0 = -14, X1 = 14, Z0 = 10, Z1 = -(count - 1) * 6 - 18;
+  const X0 = -11, X1 = 11, Z0 = 10, Z1 = -(count - 1) * 6 - 18;
   const cols = X1 - X0 + 1, rows = Z0 - Z1 + 1, n = cols * rows;
   const tiles = new T.InstancedMesh(
     new T.BoxGeometry(0.9, 0.14, 0.9),
@@ -89,7 +89,7 @@ export function buildNeural(T, { root, scene, count }) {
   const eg = new T.BufferGeometry();
   eg.setAttribute('position', new T.Float32BufferAttribute(epos, 3));
   net.add(new T.LineSegments(eg, new T.LineBasicMaterial({ color: '#1fd6ff', transparent: true, opacity: 0.14, fog: false })));
-  const P = 70;
+  const P = 50;
   const pulseGeo = new T.BufferGeometry();
   const pulsePos = new Float32Array(P * 3);
   pulseGeo.setAttribute('position', new T.BufferAttribute(pulsePos, 3));
@@ -103,7 +103,7 @@ export function buildNeural(T, { root, scene, count }) {
   root.add(net);
 
   // drifting "bits"
-  const B = 600;
+  const B = 300;
   const bitsPos = new Float32Array(B * 3);
   for (let i = 0; i < B; i++) {
     bitsPos[i * 3] = (R() - 0.5) * 30;
@@ -122,7 +122,10 @@ export function buildNeural(T, { root, scene, count }) {
     acc += dt;
     if (acc > 1 / 30) {
       acc = 0;
-      for (let i = 0; i < n; i++) {
+      // rows are laid out by z, so only walk the band the camera can actually see
+      const cz = camera.position.z;
+      const r0 = Math.max(0, Math.floor(Z0 - (cz + 6))), r1 = Math.min(rows, Math.ceil(Z0 - (cz - 45)));
+      for (let i = r0 * cols; i < r1 * cols; i++) {
         const dx = tx[i] - goal.x, dz = tz[i] - goal.z;
         const d = Math.sqrt(dx * dx + dz * dz);
         const value = Math.exp(-d * 0.17);

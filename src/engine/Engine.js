@@ -27,7 +27,12 @@ export class Engine {
     this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const r = (this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }));
-    r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+    // Resolution is the biggest cost on Retina screens. Start at up to 1.25x and let
+    // _adapt() step it down (to 0.7x) if frames run slow.
+    this.dprMax = Math.min(window.devicePixelRatio || 1, 1.25);
+    this.dpr = this.dprMax;
+    r.setPixelRatio(this.dpr);
+    this.perf = { acc: 0, n: 0, cool: 0 };
     r.toneMapping = THREE.ACESFilmicToneMapping;
     r.toneMappingExposure = 1.05;
 
@@ -145,6 +150,7 @@ export class Engine {
     const dt = Math.max(0, Math.min((now - this.last) / 1000, 0.05));
     this.last = now;
     if (document.hidden) return;
+    this._adapt(now);
     this.t += dt;
     const { camera, pointer: p, v } = this;
 
@@ -196,6 +202,26 @@ export class Engine {
     const r = Math.abs(cy - ((1 - v.p.y) / 2) * this.h);
     this.screen = [cx, cy];
     this.onFrame && this.onFrame(cx, cy, r);
+  }
+
+  // Average real frame time over ~1s; drop resolution when slow, recover slowly when fast.
+  _adapt(now) {
+    const f = this.perf;
+    if (f.prev) { f.acc += now - f.prev; f.n++; }
+    f.prev = now;
+    if (f.n < 60) return;
+    const avg = f.acc / f.n;
+    f.acc = 0; f.n = 0;
+    if (now < f.cool) return;
+    let next = this.dpr;
+    if (avg > 21) next = Math.max(0.7, this.dpr - 0.15);
+    else if (avg < 13 && this.dpr < this.dprMax) next = Math.min(this.dprMax, this.dpr + 0.1);
+    if (next !== this.dpr) {
+      this.dpr = next;
+      this.renderer.setPixelRatio(next);
+      this.renderer.setSize(this.w, this.h, false);
+      f.cool = now + 1500;
+    }
   }
 
   dispose() {

@@ -42,7 +42,7 @@ export function buildCosmos(T, { root, scene, count }) {
   const R = rng(21);
 
   // starfield
-  const S = 4000;
+  const S = 2500;
   const sp = new Float32Array(S * 3), sc = new Float32Array(S * 3);
   const tint = new T.Color();
   for (let i = 0; i < S; i++) {
@@ -67,7 +67,7 @@ export function buildCosmos(T, { root, scene, count }) {
   // the sun
   const sun = new T.Mesh(new T.SphereGeometry(6, 48, 32), new T.MeshBasicMaterial({ color: '#ffd27a' }));
   const corona = glowSprite(T, '#ffb347', 46, 0.9);
-  const corona2 = glowSprite(T, '#ff6a3d', 90, 0.35);
+  const corona2 = glowSprite(T, '#ff6a3d', 60, 0.35);
   root.add(sun, corona, corona2);
 
   // planets
@@ -100,7 +100,7 @@ export function buildCosmos(T, { root, scene, count }) {
   }
 
   // asteroid belt
-  const AN = 700;
+  const AN = 450;
   const belt = new T.InstancedMesh(new T.IcosahedronGeometry(0.28, 0), new T.MeshStandardMaterial({ color: '#8a8198', roughness: 1, flatShading: true }), AN);
   const m4 = new T.Matrix4(), q = new T.Quaternion(), p = new T.Vector3(), s = new T.Vector3(), e = new T.Euler();
   const beltR = 18 + count * 7.5 + 8;
@@ -114,7 +114,7 @@ export function buildCosmos(T, { root, scene, count }) {
   root.add(belt);
 
   // drifting dust near the camera for a sense of speed
-  const D = 400;
+  const D = 200;
   const dp = new Float32Array(D * 3);
   for (let i = 0; i < D; i++) { dp[i * 3] = (R() - 0.5) * 200; dp[i * 3 + 1] = (R() - 0.5) * 60; dp[i * 3 + 2] = (R() - 0.5) * 200; }
   const dg = new T.BufferGeometry(); dg.setAttribute('position', new T.BufferAttribute(dp, 3));

@@ -19,6 +19,7 @@ export default function App() {
   const canvas = useRef(null);
   const engine = useRef(null);
   const bubble = useRef(null);
+  const bubbleSize = useRef([300, 60]);
   const [world, setWorld] = useState(() => urlWorld() || (WORLD_BY_ID[store.get(K_WORLD)] ? store.get(K_WORLD) : 'neural'));
   const [stop, setStop] = useState(0);
   const [gate, setGate] = useState(() => !store.get(K_SEEN) && !urlWorld());
@@ -38,7 +39,8 @@ export default function App() {
       onFrame: (cx, cy, r) => {
         const el = bubble.current;
         if (!el) return;
-        const bw = el.offsetWidth, bh = el.offsetHeight, W = window.innerWidth, H = window.innerHeight;
+        const [bw, bh] = bubbleSize.current;
+        const W = window.innerWidth, H = window.innerHeight;
         const topBar = W < 760 ? 70 : 128; // keep clear of the world dial
         let left = cx - bw / 2;
         let top = cy - r - bh - 12;
@@ -55,6 +57,15 @@ export default function App() {
     engine.current = e;
     if (import.meta.env.DEV) window.__engine = e;
     return () => e.dispose();
+  }, []);
+
+  // the bubble's size only changes when its line changes; measure it then, not every frame
+  useEffect(() => {
+    const el = bubble.current;
+    if (!el || !('ResizeObserver' in window)) return undefined;
+    const ro = new ResizeObserver(() => { bubbleSize.current = [el.offsetWidth, el.offsetHeight]; });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   useEffect(() => { engine.current && engine.current.go(stop); }, [stop]);
