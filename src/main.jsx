@@ -1,10 +1,7 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './modes/base.css';
+import './styles/base.css';
+import './styles/worlds.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+// No StrictMode: its double-mounted effects would create and tear down the WebGL engine twice.
+createRoot(document.getElementById('root')).render(<App />);
