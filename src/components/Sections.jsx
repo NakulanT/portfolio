@@ -1,85 +1,48 @@
 import { useEffect, useRef, useState } from 'react';
 import profileImg from '../assets/profile.jpg';
-import {
-  profile, links, stats, marquee, work, principles, stack, timeline, projects,
-} from '../data';
+import { profile, links, stats, work, principles, stack, timeline, projects } from '../data';
+import { useGame, MISSION_XP } from '../game';
 import { arts, Icon } from './Art';
 
-export function Nav({ theme, onToggle }) {
-  return (
-    <header className="nav">
-      <a className="brand" href="#top" aria-label="Nakulan T, home">
-        <span className="mark">n<i /></span>
-        <span className="brand-name">Nakulan T</span>
-      </a>
-      <nav className="nav-links" aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#approach">Approach</a>
-        <a href="#stack">Stack</a>
-        <a href="#journey">Journey</a>
-        <a href="#projects">Projects</a>
-      </nav>
-      <div className="nav-actions">
-        <button className="icon-btn" onClick={onToggle} aria-label="Toggle light and dark theme">
-          <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
-        </button>
-        <a className="btn btn-small" href="#contact">Let&apos;s talk</a>
-      </div>
-    </header>
-  );
-}
+const pad = (n) => String(n).padStart(2, '0');
 
 export function Hero() {
+  const g = useGame();
+  const start = (e) => {
+    e.preventDefault();
+    g.award('start');
+    document.getElementById('arena')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   return (
-    <section className="hero container" id="top">
+    <section className="hero container" id="top" data-section="top">
       <div className="hero-copy">
-        <p className="pill reveal"><span className="dot" /> {profile.role} · {profile.company}</p>
-        <h1 className="reveal d1">
-          I engineer AI systems and design how they <span className="grad">feel</span>.
-        </h1>
+        <p className="boot reveal"><span className="dot" /> PORTFOLIO.EXE · v1.0 · player loaded</p>
+        <h1 className="reveal d1"><span className="glitch" data-text="NAKULAN T">NAKULAN T</span></h1>
+        <p className="class reveal d2">AI ENGINEER <i>/</i> AGENTIC GENAI <i>/</i> COMPUTER VISION</p>
         <p className="lead reveal d2">
-          I turn messy business problems into agentic GenAI and computer vision products that are
-          monitored, maintainable and built to last. Based in {profile.location}.
+          I turn messy business problems into reliable, monitored and maintainable AI systems. This site is an environment: a real reinforcement-learning agent lives in it, and you can change its world.
         </p>
         <div className="cta reveal d3">
-          <a className="btn" href="#work">See the work <Icon name="arrow" /></a>
-          <a className="btn btn-ghost" href="#contact">Get in touch</a>
+          <a className="gbtn primary big" href="#arena" onClick={start}><Icon name="play" /> Press start</a>
+          <a className="gbtn big" href="#contact">Recruit player one</a>
         </div>
-        <ul className="social reveal d4">
-          {links.filter((l) => l.icon !== 'mail').map((l) => (
-            <li key={l.label}>
-              <a href={l.href} target="_blank" rel="noreferrer" aria-label={l.label} title={l.label}>
-                <Icon name={l.icon} />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <pre className="term reveal d4" aria-hidden="true">{`> agent.train(episodes=∞)
+> reward = solved_problems − downtime
+> status: open to conversations_`}</pre>
       </div>
 
-      <div className="hero-visual reveal d2">
-        <div className="orbit o1" />
-        <div className="orbit o2" />
-        <div className="portrait">
-          <img src={profileImg} alt="Portrait of Nakulan T" width="640" height="640" />
-        </div>
-        <div className="float f1"><b>AWS Certified</b><span>Machine Learning Engineer – Associate</span></div>
-        <div className="float f2"><b>RAG + Guardrails</b><span>relevant, safe answers</span></div>
-        <div className="float f3"><b>AgentCore</b><span>agents in production</span></div>
-      </div>
+      <aside className="player panel reveal d2" aria-label="Player card">
+        <div className="player-tag"><span>PLAYER 1</span><span>READY</span></div>
+        <img src={profileImg} alt="Portrait of Nakulan T" width="640" height="640" />
+        <dl className="player-stats">
+          <div><dt>Name</dt><dd>{profile.name}</dd></div>
+          <div><dt>Class</dt><dd>{profile.role}</dd></div>
+          <div><dt>Guild</dt><dd>{profile.company}</dd></div>
+          <div><dt>Base</dt><dd>{profile.location}</dd></div>
+          <div className="badge-row"><dt>Badge</dt><dd>AWS Certified Machine Learning Engineer – Associate</dd></div>
+        </dl>
+      </aside>
     </section>
-  );
-}
-
-export function Marquee() {
-  const row = [...marquee, ...marquee];
-  return (
-    <div className="marquee" aria-hidden="true">
-      <div className="track">
-        {row.map((m, i) => (
-          <span key={i}>{m}<i /></span>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -88,15 +51,14 @@ function CountUp({ value, prefix = '', suffix = '', decimals = 0 }) {
   const [n, setN] = useState(0);
   useEffect(() => {
     const el = ref.current;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { setN(value); return undefined; }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setN(value); return undefined; }
     let raf;
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
       io.disconnect();
-      const start = performance.now();
+      const t0 = performance.now();
       const tick = (t) => {
-        const p = Math.min((t - start) / 1400, 1);
+        const p = Math.min((t - t0) / 1300, 1);
         setN(value * (1 - Math.pow(1 - p, 3)));
         if (p < 1) raf = requestAnimationFrame(tick);
       };
@@ -108,11 +70,12 @@ function CountUp({ value, prefix = '', suffix = '', decimals = 0 }) {
   return <span ref={ref}>{prefix}{n.toFixed(decimals)}{suffix}</span>;
 }
 
-export function Stats() {
+export function Scoreboard() {
   return (
-    <section className="container stats">
+    <section className="container scoreboard">
       {stats.map((s, i) => (
-        <div className={`stat reveal d${i}`} key={s.label}>
+        <div className={`score panel reveal d${i}`} key={s.label}>
+          <p className="mini-label">Score {pad(i + 1)}</p>
           <div className="num"><CountUp {...s} /></div>
           <p>{s.label}</p>
         </div>
@@ -121,55 +84,74 @@ export function Stats() {
   );
 }
 
-function Spot({ className = '', children }) {
+function Mission({ w, i }) {
+  const g = useGame();
+  const cleared = g.missions.includes(w.id);
+  const Art = arts[w.art];
+  const clear = () => g.track('mission', w.id);
   const onMove = (e) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
-    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--ry', `${(((e.clientX - r.left) / r.width - 0.5) * 10).toFixed(2)}deg`);
+    el.style.setProperty('--rx', `${((0.5 - (e.clientY - r.top) / r.height) * 8).toFixed(2)}deg`);
   };
-  return <article className={`card spot ${className}`} onMouseMove={onMove}>{children}</article>;
+  const onLeave = (e) => { e.currentTarget.style.setProperty('--rx', '0deg'); e.currentTarget.style.setProperty('--ry', '0deg'); };
+  return (
+    <div className={`card-wrap reveal d${i % 3}`}>
+      <article
+        className={`card mission${cleared ? ' cleared' : ''}`}
+        role="button"
+        tabIndex={0}
+        aria-pressed={cleared}
+        onClick={clear}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clear(); } }}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+      >
+        <div className="mission-tag"><span>MISSION {pad(i + 1)}</span><span className="state">{cleared ? 'CLEARED' : `+${MISSION_XP} XP`}</span></div>
+        <div className="art-wrap"><Art /></div>
+        <div className="card-body">
+          <h3>{w.title}</h3>
+          <p className="lbl">Objective</p>
+          <p className="problem">{w.problem}</p>
+          <p className="lbl">Solution</p>
+          <p>{w.solution}</p>
+          <ul className="tags">{w.tags.map((t) => <li key={t}>{t}</li>)}</ul>
+        </div>
+      </article>
+    </div>
+  );
 }
 
-export function Work() {
+export function Missions() {
+  const g = useGame();
   return (
-    <section className="container section" id="work">
+    <section className="container section" id="missions" data-section="missions">
       <div className="section-head reveal">
-        <p className="eyebrow">Selected work</p>
+        <p className="eyebrow">Level 02 · Missions</p>
         <h2>Problems I solved, end to end.</h2>
-        <p className="sub">Each one started with a person who was stuck. Illustrations are drawn for this site, not screenshots.</p>
+        <p className="sub">Each mission started with someone who was stuck. Click a mission to clear it and earn XP. {g.missions.length}/{work.length} cleared.</p>
       </div>
       <div className="bento">
-        {work.map((w, i) => {
-          const Art = arts[w.art];
-          return (
-            <Spot key={w.id} className={`reveal d${i % 3}`}>
-              <div className="art-wrap"><Art /></div>
-              <div className="card-body">
-                <h3>{w.title}</h3>
-                <p className="problem">{w.problem}</p>
-                <p>{w.solution}</p>
-                <ul className="tags">{w.tags.map((t) => <li key={t}>{t}</li>)}</ul>
-              </div>
-            </Spot>
-          );
-        })}
+        {work.map((w, i) => <Mission key={w.id} w={w} i={i} />)}
       </div>
     </section>
   );
 }
 
-export function Approach() {
+export function RewardFn() {
   return (
-    <section className="container section" id="approach">
+    <section className="container section" id="reward">
       <div className="section-head reveal">
-        <p className="eyebrow">How I work</p>
-        <h2>Engineer's rigour, designer's care.</h2>
+        <p className="eyebrow">Design notes</p>
+        <h2>My reward function.</h2>
+        <p className="sub">What I optimise for when I build. If you train an agent on the wrong reward, it will find a clever way to fail, and the same is true of a team.</p>
       </div>
-      <div className="principles">
+      <div className="terms">
         {principles.map((p, i) => (
-          <div className={`principle reveal d${i}`} key={p.n}>
-            <span className="n">{p.n}</span>
-            <h3>{p.title}</h3>
+          <div className={`term panel reveal d${i}`} key={p.n}>
+            <p className="mini-label">Term {p.n}</p>
+            <h3><span className="plus">+</span> {p.title}</h3>
             <p>{p.text}</p>
           </div>
         ))}
@@ -178,18 +160,20 @@ export function Approach() {
   );
 }
 
-export function Stack() {
+export function Skills() {
   return (
-    <section className="container section" id="stack">
+    <section className="container section" id="skills" data-section="skills">
       <div className="section-head reveal">
-        <p className="eyebrow">Toolbox</p>
+        <p className="eyebrow">Level 03 · Skill tree</p>
         <h2>What I build with.</h2>
       </div>
-      <div className="stack-grid">
-        {stack.map((g, i) => (
-          <div className={`stack-group reveal d${i % 3}`} key={g.group}>
-            <h3>{g.group}</h3>
-            <ul className="tags">{g.items.map((t) => <li key={t}>{t}</li>)}</ul>
+      <div className="tree">
+        {stack.map((grp, i) => (
+          <div className={`branch panel reveal d${i % 3}`} key={grp.group}>
+            <h3><i /> {grp.group}</h3>
+            <ul>
+              {grp.items.map((it) => <li className="node" key={it}><i />{it}</li>)}
+            </ul>
           </div>
         ))}
       </div>
@@ -197,11 +181,11 @@ export function Stack() {
   );
 }
 
-export function Journey() {
+export function Log() {
   return (
-    <section className="container section" id="journey">
+    <section className="container section" id="log" data-section="log">
       <div className="section-head reveal">
-        <p className="eyebrow">Journey</p>
+        <p className="eyebrow">Level 04 · Save points</p>
         <h2>Where I have been building.</h2>
       </div>
       <div className="journey">
@@ -215,13 +199,8 @@ export function Journey() {
             </li>
           ))}
         </ol>
-        <aside className="cert reveal d1">
-          <svg viewBox="0 0 120 120" className="badge" aria-hidden="true">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="var(--accent)" strokeWidth="2" strokeDasharray="4 6" />
-            <circle cx="60" cy="60" r="40" fill="var(--accent)" opacity="0.12" />
-            <path d="m40 62 14 14 28-32" fill="none" stroke="var(--accent)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <p className="eyebrow">Certification</p>
+        <aside className="cert panel reveal d1">
+          <p className="eyebrow">Achievement unlocked</p>
           <h3>AWS Certified Machine Learning Engineer – Associate</h3>
           <p className="org">Issued Sep 2026 · Valid to Sep 2029</p>
         </aside>
@@ -230,22 +209,19 @@ export function Journey() {
   );
 }
 
-export function Projects() {
+export function SideQuests() {
   return (
-    <section className="container section" id="projects">
+    <section className="container section" id="quests">
       <div className="section-head reveal">
-        <p className="eyebrow">Side projects</p>
+        <p className="eyebrow">Side quests</p>
         <h2>Where the curiosity goes.</h2>
       </div>
       <ul className="project-list">
         {projects.map((p, i) => (
           <li className={`reveal d${i % 3}`} key={p.name}>
             <a href={p.href} target="_blank" rel="noreferrer">
-              <span className="pn">{String(i + 1).padStart(2, '0')}</span>
-              <span className="pt">
-                <b>{p.name}</b>
-                <small>{p.stack}</small>
-              </span>
+              <span className="pn">{pad(i + 1)}</span>
+              <span className="pt"><b>{p.name}</b><small>{p.stack}</small></span>
               <span className="pnote">{p.note}</span>
               <span className="parrow"><Icon name="arrow" /></span>
             </a>
@@ -257,25 +233,27 @@ export function Projects() {
 }
 
 export function Contact() {
+  const g = useGame();
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(profile.email);
       setCopied(true);
+      g.award('contact');
       setTimeout(() => setCopied(false), 1800);
     } catch (e) {
       window.location.href = `mailto:${profile.email}`;
     }
   };
   return (
-    <section className="container section contact" id="contact">
-      <div className="contact-card reveal">
-        <p className="eyebrow">Contact</p>
-        <h2>Let&apos;s build something that holds up.</h2>
+    <section className="container section contact" id="contact" data-section="contact">
+      <div className="contact-card panel reveal">
+        <p className="eyebrow">Player two</p>
+        <h2>Ready to build something that holds up?</h2>
         <p className="sub">Have an AI problem worth solving, or a team that needs an engineer who also cares how it feels? I would love to hear about it.</p>
         <div className="cta">
-          <a className="btn" href={`mailto:${profile.email}`}><Icon name="mail" /> {profile.email}</a>
-          <button className="btn btn-ghost" onClick={copy}><Icon name="copy" /> {copied ? 'Copied' : 'Copy email'}</button>
+          <a className="gbtn primary big" href={`mailto:${profile.email}`}><Icon name="mail" /> {profile.email}</a>
+          <button className="gbtn big" onClick={copy}><Icon name="copy" /> {copied ? 'Copied' : 'Copy email'}</button>
         </div>
         <ul className="link-grid">
           {links.map((l) => (
@@ -294,10 +272,12 @@ export function Contact() {
 }
 
 export function Footer() {
+  const g = useGame();
   return (
     <footer className="container footer">
-      <span>© {new Date().getFullYear()} Nakulan T</span>
-      <span>Designed and built by hand · React · Vite</span>
+      <span>© {new Date().getFullYear()} Nakulan T · built with React, Three.js and a little Q-learning</span>
+      <span className="konami">↑ ↑ ↓ ↓ ← → ← → B A</span>
+      <button className="link-btn" onClick={g.reset}>New game</button>
     </footer>
   );
 }

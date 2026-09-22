@@ -342,6 +342,18 @@ export function Icon({ name }) {
       return (
         <svg {...common}><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>
       );
+    case 'play':
+      return (<svg {...common}><path d="M7 4.5v15l12-7.5z" fill="currentColor" stroke="none" /></svg>);
+    case 'pause':
+      return (<svg {...common}><path d="M8 5v14M16 5v14" strokeWidth="3" /></svg>);
+    case 'reset':
+      return (<svg {...common}><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5" /></svg>);
+    case 'trophy':
+      return (<svg {...common}><path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4v2a4 4 0 0 0 4 4M16 6h4v2a4 4 0 0 1-4 4M12 14v4M8 21h8" /></svg>);
+    case 'close':
+      return (<svg {...common}><path d="M6 6l12 12M18 6 6 18" /></svg>);
+    case 'check':
+      return (<svg {...common}><path d="m5 12.5 4.5 4.5L19 7.5" strokeWidth="2.6" /></svg>);
     default:
       return null;
   }
