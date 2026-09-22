@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './styles/base.css';
-import './styles/worlds.css';
+import './styles.css';
 
-// No StrictMode: its double-mounted effects would create and tear down the WebGL engine twice.
+// No StrictMode: double-mounted effects would create and dispose the WebGL context twice.
 createRoot(document.getElementById('root')).render(<App />);
