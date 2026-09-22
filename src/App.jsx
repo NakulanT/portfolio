@@ -1,68 +1,38 @@
-import { useEffect, useState } from 'react';
-import { GameProvider, useGame } from './game';
-import { Hud, QuestDrawer, Toasts } from './components/Hud';
-import Arena from './components/Arena';
-import {
-  Hero, Scoreboard, Missions, RewardFn, Skills, Log, SideQuests, Contact, Footer,
-} from './components/Sections';
+import { useState } from 'react';
+import { GameProvider } from './game';
+import { ModeProvider, useMode } from './mode';
+import { ModeSwitcher } from './components/ModeSwitcher';
+import { RLSite } from './modes/rl/RLSite';
+import { GamingSite } from './modes/gaming/GamingSite';
+import { JapaneseSite } from './modes/japanese/JapaneseSite';
+import { GreekSite } from './modes/greek/GreekSite';
 
-function Site() {
-  const game = useGame();
+// Four completely separate designs — layout, typography, colour and 3D scene — share only
+// the underlying content (src/data.js) and the XP/achievement layer (src/game.jsx), which
+// persists across mode switches since GameProvider stays mounted the whole time.
+function Router() {
+  const { mode } = useMode();
   const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'dark');
-
-  const toggle = () => {
+  const toggleTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
     document.documentElement.setAttribute('data-theme', next);
     try { localStorage.setItem('theme', next); } catch (e) { /* storage can be unavailable */ }
-    game.award('night');
   };
 
-  // scroll reveal
-  useEffect(() => {
-    const els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) { els.forEach((el) => el.classList.add('in')); return undefined; }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
-  // visiting a section counts toward the Explorer achievement
-  useEffect(() => {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) game.track('section', e.target.dataset.section); });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('[data-section]').forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [game.track]);
-
-  return (
-    <>
-      <Hud theme={theme} onToggle={toggle} />
-      <main>
-        <Hero />
-        <Scoreboard />
-        <Arena />
-        <Missions />
-        <RewardFn />
-        <Skills />
-        <Log />
-        <SideQuests />
-        <Contact />
-      </main>
-      <Footer />
-      <QuestDrawer />
-      <Toasts />
-    </>
-  );
+  if (mode === 'gaming') return <GamingSite />;
+  if (mode === 'japanese') return <JapaneseSite />;
+  if (mode === 'greek') return <GreekSite />;
+  return <RLSite theme={theme} onToggle={toggleTheme} />;
 }
 
 export default function App() {
   return (
     <GameProvider>
-      <Site />
+      <ModeProvider>
+        <Router />
+        <ModeSwitcher />
+      </ModeProvider>
     </GameProvider>
   );
 }

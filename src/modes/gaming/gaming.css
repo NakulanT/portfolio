@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+html[data-mode='gaming'] {
+  --g-bg: #0a0714;
+  --g-panel: #140f26;
+  --g-panel-2: #1c1436;
+  --g-line: rgba(0, 240, 255, 0.22);
+  --g-line-strong: rgba(0, 240, 255, 0.45);
+  --g-text: #eef0ff;
+  --g-text-2: #b7b3e0;
+  --g-text-3: #6b6b8f;
+  --g-accent: #ff2d95;
+  --g-accent-2: #00f0ff;
+  --g-gold: #ffd23f;
+  color-scheme: dark;
+}
+
+html[data-mode='gaming'] body { background: var(--g-bg); color: var(--g-text); font-family: 'VT323', monospace; font-size: 19px; }
+
+.game { position: relative; }
+.game * { box-sizing: border-box; }
+.game a { color: inherit; text-decoration: none; }
+.game ul, .game ol { list-style: none; margin: 0; padding: 0; }
+.game h1, .game h2, .game h3, .game p, .game table { margin: 0; }
+.game button { font: inherit; background: none; border: 0; color: inherit; cursor: pointer; }
+.game-section, .game-hud, .game-nav, .game-footer, .game-continue { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.game-pixel { font-family: 'Press Start 2P', monospace; }
+
+/* CRT scanlines + vignette overlay */
+.game-scan { position: fixed; inset: 0; z-index: 90; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.16) 0 1px, transparent 1px 3px), radial-gradient(120% 100% at 50% 0%, transparent 55%, rgba(0,0,0,0.55) 100%); }
+
+/* ---- nav ---- */
+.game-nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 2px solid var(--g-line-strong); background: color-mix(in srgb, var(--g-bg) 88%, transparent); backdrop-filter: blur(4px); }
+.game-logo { font-family: 'Press Start 2P', monospace; font-size: 13px; color: var(--g-accent-2); text-shadow: 0 0 8px var(--g-accent-2); }
+.game-nav nav { display: flex; gap: 22px; }
+.game-nav nav a { font-family: 'Press Start 2P', monospace; font-size: 9.5px; letter-spacing: .04em; color: var(--g-text-2); transition: color .2s; }
+.game-nav nav a:hover { color: var(--g-gold); }
+
+/* ---- hero ---- */
+.game-hero { position: relative; min-height: 86vh; display: flex; flex-direction: column; overflow: hidden; }
+.game-hero .scene3d-bg { position: absolute; inset: 0; z-index: 0; }
+.game-hero::after { content: ''; position: absolute; inset: 0; z-index: 1; background: radial-gradient(70% 60% at 50% 40%, transparent 30%, var(--g-bg) 92%); }
+.game-marquee { position: relative; z-index: 2; overflow: hidden; padding: 8px 0; background: var(--g-panel); border-bottom: 2px solid var(--g-line-strong); border-top: 2px solid var(--g-line-strong); }
+.game-marquee span { display: inline-block; white-space: nowrap; font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--g-gold); animation: game-marquee 16s linear infinite; padding-left: 100%; }
+@keyframes game-marquee { to { transform: translateX(-100%); } }
+.game-hero-copy { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; }
+.game-insert { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--g-accent); letter-spacing: .1em; }
+.blink { animation: game-blink 1s steps(2) infinite; }
+@keyframes game-blink { 50% { opacity: 0; } }
+.game-hero h1 { margin-top: 16px; font-family: 'Press Start 2P', monospace; font-size: clamp(1.7rem, 5.6vw, 3.4rem); color: var(--g-text); text-shadow: 3px 3px 0 var(--g-accent), 6px 6px 0 var(--g-accent-2); line-height: 1.3; }
+.game-sub { margin-top: 20px; font-size: 22px; color: var(--g-accent-2); }
+.game-lead { margin: 16px auto 0; max-width: 50ch; color: var(--g-text-2); font-size: 19px; }
+.game-cta { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.game-btn { font-family: 'Press Start 2P', monospace; font-size: 11px; padding: 14px 20px; border: 2px solid var(--g-line-strong); color: var(--g-text); display: inline-flex; align-items: center; gap: 8px; transition: transform .1s, background .2s, border-color .2s; }
+.game-btn:hover { border-color: var(--g-gold); transform: translateY(-2px); }
+.game-btn.primary { background: var(--g-accent); border-color: var(--g-accent); color: #fff; }
+.game-btn.primary:hover { background: var(--g-gold); border-color: var(--g-gold); color: #140f26; }
+
+/* ---- HUD stat tiles ---- */
+.game-hud { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+.game-tile { background: var(--g-panel); border: 2px solid var(--g-line-strong); padding: 16px; box-shadow: 4px 4px 0 var(--g-line); }
+.game-tile-k { font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--g-gold); }
+.game-tile b { display: block; margin-top: 10px; font-family: 'Press Start 2P', monospace; font-size: 1.5rem; color: var(--g-accent-2); }
+.game-tile p { margin-top: 10px; font-size: 16px; color: var(--g-text-2); }
+
+/* ---- sections ---- */
+.game-section { padding: 90px 0 0; }
+.game-section-head { margin-bottom: 34px; padding-bottom: 14px; border-bottom: 2px solid var(--g-line-strong); }
+.game-eyebrow { font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--g-accent-2); }
+.game-section-head h2 { margin-top: 12px; font-family: 'Press Start 2P', monospace; font-size: clamp(1.2rem, 3vw, 1.9rem); line-height: 1.4; }
+
+/* ---- level cards ---- */
+.game-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.game-card { background: var(--g-panel); border: 2px solid var(--g-line-strong); padding: 18px; box-shadow: 5px 5px 0 var(--g-line); transition: transform .15s, box-shadow .15s, border-color .2s; }
+.game-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--g-accent-2); border-color: var(--g-accent-2); }
+.game-card-top { display: flex; justify-content: space-between; font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--g-gold); }
+.game-diff { color: var(--g-accent); }
+.game-card h3 { margin-top: 16px; font-family: 'Press Start 2P', monospace; font-size: 1rem; line-height: 1.5; color: var(--g-text); }
+.game-problem { margin-top: 12px; color: var(--g-text-3); font-style: italic; }
+.game-card p:not(.game-problem) { margin-top: 8px; color: var(--g-text-2); font-size: 17.5px; line-height: 1.5; }
+.game-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.game-tags li { padding: 3px 9px; border: 1px solid var(--g-line-strong); font-family: 'Press Start 2P', monospace; font-size: 7.5px; color: var(--g-text-2); }
+
+/* ---- rules ---- */
+.game-rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.game-rule { background: var(--g-panel); border: 2px solid var(--g-line-strong); padding: 20px; }
+.game-rule h3 { margin-top: 24px; font-family: 'Press Start 2P', monospace; font-size: 13px; line-height: 1.6; color: var(--g-accent-2); }
+.game-rule p { margin-top: 12px; color: var(--g-text-2); font-size: 17.5px; }
+
+/* ---- inventory ---- */
+.game-inv { display: grid; gap: 24px; }
+.game-slot-group h3 { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--g-gold); }
+.game-slots { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.game-slot { padding: 8px 12px; background: var(--g-panel); border: 2px solid var(--g-line-strong); font-size: 16px; transition: border-color .2s, color .2s; }
+.game-slot:hover { border-color: var(--g-accent-2); color: var(--g-accent-2); }
+
+/* ---- high score table ---- */
+.game-table { width: 100%; border-collapse: collapse; }
+.game-table th { text-align: left; font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--g-gold); padding: 10px 12px; border-bottom: 2px solid var(--g-line-strong); }
+.game-table td { padding: 14px 12px; border-bottom: 1px solid var(--g-line); font-size: 17px; vertical-align: top; }
+.game-table td b { display: block; color: var(--g-text); font-size: 18px; }
+.game-table td small { color: var(--g-text-3); font-size: 14px; }
+.game-cert-row td { color: var(--g-accent-2); }
+.game-cert-row b { color: var(--g-accent-2) !important; }
+
+/* ---- bonus list ---- */
+.game-bonus-list { border-top: 2px solid var(--g-line-strong); }
+.game-bonus-list a { display: grid; grid-template-columns: 44px 1.3fr 1fr 24px; align-items: center; gap: 16px; padding: 16px 4px; border-bottom: 1px solid var(--g-line); transition: padding .2s, background .2s; }
+.game-bonus-list a:hover { padding-inline: 14px; background: var(--g-panel); }
+.game-quest-t b { display: block; font-family: 'Press Start 2P', monospace; font-size: 12px; }
+.game-quest-t small { color: var(--g-text-3); font-size: 14px; }
+.game-quest-note { color: var(--g-text-2); font-size: 16px; }
+
+/* ---- continue / contact ---- */
+.game-continue { padding-bottom: 60px; display: grid; grid-template-columns: 1fr 220px; gap: 24px; align-items: end; }
+.game-continue-card { position: relative; padding: 40px; background: var(--g-panel); border: 2px solid var(--g-line-strong); box-shadow: 8px 8px 0 var(--g-line); }
+.game-links { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.game-links a { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid var(--g-line-strong); transition: border-color .2s; }
+.game-links a:hover { border-color: var(--g-accent-2); }
+.game-links b { display: block; font-size: 16px; } .game-links small { color: var(--g-text-3); font-size: 12.5px; }
+.game-avatar { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: 50% 22%; border: 2px solid var(--g-line-strong); box-shadow: 6px 6px 0 var(--g-accent); display: none; }
+
+/* ---- footer ---- */
+.game-footer { padding: 24px 0 40px; text-align: center; font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--g-text-3); border-top: 2px solid var(--g-line); margin-top: 20px; }
+
+@media (min-width: 820px) { .game-avatar { display: block; } }
+@media (max-width: 900px) {
+  .game-hud { grid-template-columns: 1fr 1fr; }
+  .game-grid { grid-template-columns: 1fr 1fr; }
+  .game-rules { grid-template-columns: 1fr; }
+  .game-continue { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .game-hud { grid-template-columns: 1fr; }
+  .game-grid { grid-template-columns: 1fr; }
+  .game-links { grid-template-columns: 1fr; }
+  .game-nav nav { display: none; }
+  .game-bonus-list a { grid-template-columns: 30px 1fr 22px; }
+  .game-quest-note { display: none; }
+}
